@@ -1,8 +1,12 @@
 doctype html
-html
+html(ng-app="mi")
   head
+    meta(charset="utf-8")
     title prototype
-    script(src='/lib/angular/angular.js')
-    script(src='/main.js')
-  body
-    p hello
+    link(rel="stylesheet" type="text/css" href="/style.css")
+  body(ng-controller="MiController")
+    ul
+      li(ng-repeat="people in data")
+        img(ng-src="{{people.img}}")
+    script(src="/lib/angular/angular.js")
+    script(src="/main.js")

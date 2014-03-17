@@ -1,6 +1,7 @@
 require! <[gulp gulp-concat gulp-livereload gulp-bower-files node-static tiny-lr]>
 gutil             = require \gulp-util
 livescript        = require \gulp-livescript
+stylus            = require \gulp-stylus
 jade              = require \gulp-jade
 livereload-server = tiny-lr!
 livereload        = -> gulp-livereload livereload-server
@@ -14,10 +15,19 @@ gulp.task \bower ->
 
 gulp.task \js ->
   gulp.src do
-    * 'src/ls/*.ls'
-    ...
+    * 'src/ls/data.ls'
+      'src/ls/main.ls'
   .pipe gulp-concat 'main.ls'
   .pipe livescript!
+  .pipe gulp.dest path.build
+  .pipe livereload!
+
+gulp.task \css ->
+  gulp.src do
+    * 'src/stylus/*.styl'
+    ...
+  .pipe gulp-concat 'style.styl'
+  .pipe stylus use: <[nib]>
   .pipe gulp.dest path.build
   .pipe livereload!
 
@@ -27,7 +37,7 @@ gulp.task \html ->
   .pipe gulp.dest path.build
   .pipe livereload!
 
-gulp.task \build <[bower js html]>
+gulp.task \build <[bower js css html]>
 
 gulp.task \static (next) ->
   server = new node-static.Server path.root
@@ -39,8 +49,9 @@ gulp.task \static (next) ->
     next!
 
 gulp.task \watch ->
-  gulp.watch 'src/ls/*.ls'    <[js]>
-  gulp.watch 'src/index.jade' <[html]>
+  gulp.watch 'src/ls/*.ls'          <[js]>
+  gulp.watch 'src/stylus/*.styl'    <[css]>
+  gulp.watch 'src/index.jade'       <[html]>
 
 gulp.task \livereload ->
   port = 35729
