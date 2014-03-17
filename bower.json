@@ -1,0 +1,23 @@
+{
+  "name": "prototype-happen-rice",
+  "version": "0.0.1",
+  "homepage": "https://github.com/caasi/prototype-happen-rice",
+  "authors": [
+    "caasi Huang <caasi.igd@gmail.com>"
+  ],
+  "main": "main.js",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.14"
+  }
+}
