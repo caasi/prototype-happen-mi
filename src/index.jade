@@ -9,10 +9,11 @@ html(ng-app="mi")
     #container
       ul#pics
         li(ng-repeat="people in data")
-          a.people(ng-style="people.style" ng-href="{{$index}}")
+          a.people(ng-style="people.style" ui-sref="people({id:$index})")
+    #modal.ui.large.modal(ui-view)
     #menu.ui.inverted.menu
-      a.item(href="/") 薪新職人
-      a.item(href="/about/") about
+      a.item(ui-sref="home") 薪新職人
+      a.item(ui-sref="about") about
     script(src="/lib/vendor.js")
     script(src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.12.0/javascript/semantic.min.js")
     script(src="/main.js")
