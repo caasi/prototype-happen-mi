@@ -11,7 +11,9 @@ path =
   build: './'
 
 gulp.task \bower ->
-  gulp-bower-files!pipe gulp.dest "#{path.build}lib/"
+  gulp-bower-files!
+  .pipe gulp-concat 'vendor.js'
+  .pipe gulp.dest "#{path.build}lib/"
 
 gulp.task \js ->
   gulp.src do

@@ -7,6 +7,6 @@ html(ng-app="mi")
   body(ng-controller="MiController")
     ul#pics
       li(ng-repeat="people in data")
-        a.people(ng-style="people.style")
-    script(src="/lib/angular/angular.js")
+        a.people(ng-style="people.style" href="#")
+    script(src="/lib/vendor.js")
     script(src="/main.js")

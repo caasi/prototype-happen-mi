@@ -43,7 +43,11 @@
       img: 'img/steve.jpg'
     }
   ];
-  angular.module('mi', []).controller('MiController', ['$scope'].concat(function($scope){
+  angular.module('mi', ['ui.router']).config(['$stateProvider'].concat(function($stateProvider){
+    return $stateProvider.state('home', {
+      url: '/'
+    });
+  })).controller('MiController', ['$scope'].concat(function($scope){
     var i$, ref$, len$, people;
     for (i$ = 0, len$ = (ref$ = data).length; i$ < len$; ++i$) {
       people = ref$[i$];
