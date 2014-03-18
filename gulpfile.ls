@@ -51,6 +51,7 @@ gulp.task \static (next) ->
     next!
 
 gulp.task \watch ->
+  gulp.watch 'bower.json'           <[bower]>
   gulp.watch 'src/ls/*.ls'          <[js]>
   gulp.watch 'src/stylus/*.styl'    <[css]>
   gulp.watch 'src/index.jade'       <[html]>

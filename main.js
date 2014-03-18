@@ -1,5 +1,5 @@
 (function(){
-  var data;
+  var data, $window, $container, $menu, calcContainerSize;
   data = [
     {
       img: 'img/steve.jpg',
@@ -43,9 +43,18 @@
       img: 'img/steve.jpg'
     }
   ];
+  $window = $(window);
+  $container = $('#container');
+  $menu = $('#menu');
+  (calcContainerSize = function(){
+    return $container.height($window.height() - $menu.height());
+  })();
+  $window.resize(calcContainerSize);
   angular.module('mi', ['ui.router']).config(['$stateProvider'].concat(function($stateProvider){
     return $stateProvider.state('home', {
       url: '/'
+    }).state('people', {
+      url: '/:id'
     });
   })).controller('MiController', ['$scope'].concat(function($scope){
     var i$, ref$, len$, people;
