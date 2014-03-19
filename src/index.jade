@@ -3,17 +3,17 @@ html(ng-app="mi")
   head
     meta(charset="utf-8")
     title prototype
-    link(rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.12.0/css/semantic.min.css")
+    link(rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/semantic-ui/0.15.1/css/semantic.min.css")
     link(rel="stylesheet" type="text/css" href="/style.css")
   body(ng-controller="MiController")
     #container
       ul#pics
         li(ng-repeat="people in data")
           a.people(ng-style="people.style" ui-sref="people({id:$index})")
-    #modal.ui.large.modal(ui-view)
     #menu.ui.inverted.menu
       a.item(ui-sref="home") 薪新職人
       a.item(ui-sref="about") about
+    #modal.ui.modal(ui-view)
     script(src="/lib/vendor.js")
-    script(src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.12.0/javascript/semantic.min.js")
+    script(src="//cdn.jsdelivr.net/semantic-ui/0.15.1/javascript/semantic.min.js")
     script(src="/main.js")

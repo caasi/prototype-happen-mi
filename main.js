@@ -47,6 +47,9 @@
   $container = $('#container');
   $menu = $('#menu');
   $modal = $('#modal');
+  $modal.modal('setting', {
+    detachable: false
+  });
   (calcContainerSize = function(){
     return $container.height($window.height() - $menu.height());
   })();
@@ -61,8 +64,7 @@
         var id;
         id = arg$.id;
         import$($scope, data[+id]);
-        console.log($scope);
-        return $modal.modal('setting', {
+        return $('#modal').modal('setting', {
           onHide: function(){
             return $state.go('home');
           }

@@ -4,6 +4,7 @@ $window    = $ window
 $container = $ \#container
 $menu      = $ \#menu
 $modal     = $ \#modal
+$modal.modal \setting detachable: false
 
 do calc-container-size = ->
   $container.height $window.height! - $menu.height!
@@ -20,12 +21,10 @@ angular.module \mi <[ui.router]>
         templateUrl: '/people.html'
         controller: <[$scope $state $stateParams]> ++ ($scope, $state, {id}) ->
           $scope <<< data[+id]
-          console.log $scope
-          $modal
+          $ \#modal
             .modal \setting do
               # onHidden is not working
-              onHide: ->
-                $state.go \home
+              onHide: -> $state.go \home
             .modal \show
       .state \about do
         url: '/about/'

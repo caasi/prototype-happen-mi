@@ -1,4 +1,9 @@
-i.close.icon
-img.ui.large.image(ng-src="image")
+//i.close.icon
 .header(ng-bind="title")
-p.content(ng-bind="content")
+.content
+  .left
+    img.ui.large.image(ng-src="{{image}}")
+  .right
+    p.content(ng-bind="content")
+.actions
+  .ui.negative.button Close
