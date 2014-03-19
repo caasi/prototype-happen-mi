@@ -59,7 +59,7 @@
       url: '/'
     }).state('people', {
       url: '/:id',
-      templateUrl: '/people.html',
+      templateUrl: './people.html',
       controller: ['$scope', '$state', '$stateParams'].concat(function($scope, $state, arg$){
         var id;
         id = arg$.id;

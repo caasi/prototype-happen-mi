@@ -18,7 +18,7 @@ angular.module \mi <[ui.router]>
         url: '/'
       .state \people do
         url: '/:id'
-        templateUrl: '/people.html'
+        templateUrl: './people.html'
         controller: <[$scope $state $stateParams]> ++ ($scope, $state, {id}) ->
           $scope <<< data[+id]
           $ \#modal
